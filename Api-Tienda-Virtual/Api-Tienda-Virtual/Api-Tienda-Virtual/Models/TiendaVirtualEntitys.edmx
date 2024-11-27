@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TiendaVirtualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TiendaVirtualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carrito">
           <Key>
             <PropertyRef Name="idCarrito" />
@@ -23,6 +23,16 @@
           <Property Name="urlImagen" Type="varchar(max)" />
           <Property Name="Descripcion" Type="varchar(max)" />
           <Property Name="Estatus" Type="int" />
+        </EntityType>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="idDetalleVenta" />
+          </Key>
+          <Property Name="idDetalleVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idVenta" Type="int" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Estatus">
           <Key>
@@ -52,6 +62,15 @@
           <Property Name="Correo" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" />
           <Property Name="estatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="FechaVenta" Type="datetime" />
+          <Property Name="TotalVenta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <Association Name="FK__Carrito__idProdu__619B8048">
           <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
@@ -86,6 +105,30 @@
             </Principal>
             <Dependent Role="categorias">
               <PropertyRef Name="Estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__idPro__75A278F5">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__idVen__74AE54BC">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="1" />
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="idVenta" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="idVenta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -125,12 +168,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Ventas__idUsuari__6FE99F9F">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TiendaVirtualModelStoreContainer">
           <EntitySet Name="Carrito" EntityType="Self.Carrito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Carrito__idProdu__619B8048" Association="Self.FK__Carrito__idProdu__619B8048">
             <End Role="Productos" EntitySet="Productos" />
             <End Role="Carrito" EntitySet="Carrito" />
@@ -142,6 +199,14 @@
           <AssociationSet Name="FK__categoria__Estat__534D60F1" Association="Self.FK__categoria__Estat__534D60F1">
             <End Role="Estatus" EntitySet="Estatus" />
             <End Role="categorias" EntitySet="categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__idPro__75A278F5" Association="Self.FK__DetalleVe__idPro__75A278F5">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__idVen__74AE54BC" Association="Self.FK__DetalleVe__idVen__74AE54BC">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
           <AssociationSet Name="FK__Productos__Categ__59063A47" Association="Self.FK__Productos__Categ__59063A47">
             <End Role="categorias" EntitySet="categorias" />
@@ -155,9 +220,12 @@
             <End Role="Estatus" EntitySet="Estatus" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
+          <AssociationSet Name="FK__Ventas__idUsuari__6FE99F9F" Association="Self.FK__Ventas__idUsuari__6FE99F9F">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TiendaVirtualModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -209,6 +277,7 @@
           <NavigationProperty Name="Carrito" Relationship="Self.FK__Carrito__idProdu__619B8048" FromRole="Productos" ToRole="Carrito" />
           <NavigationProperty Name="categorias" Relationship="Self.FK__Productos__Categ__59063A47" FromRole="Productos" ToRole="categorias" />
           <NavigationProperty Name="Estatus1" Relationship="Self.FK__Productos__Estat__59FA5E80" FromRole="Productos" ToRole="Estatus" />
+          <NavigationProperty Name="DetalleVenta" Relationship="TiendaVirtualModel.FK__DetalleVe__idPro__75A278F5" FromRole="Productos" ToRole="DetalleVenta" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -220,6 +289,7 @@
           <Property Name="estatus" Type="Int32" />
           <NavigationProperty Name="Carrito" Relationship="Self.FK__Carrito__idusuar__60A75C0F" FromRole="usuario" ToRole="Carrito" />
           <NavigationProperty Name="Estatus1" Relationship="Self.FK__usuario__estatus__5DCAEF64" FromRole="usuario" ToRole="Estatus" />
+          <NavigationProperty Name="Ventas" Relationship="TiendaVirtualModel.FK__Ventas__idUsuari__6FE99F9F" FromRole="usuario" ToRole="Ventas" />
         </EntityType>
         <Association Name="FK__Carrito__idProdu__619B8048">
           <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
@@ -323,7 +393,80 @@
             <End Role="Estatus" EntitySet="Estatus" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
+          <EntitySet Name="DetalleVenta" EntityType="TiendaVirtualModel.DetalleVenta" />
+          <EntitySet Name="Ventas" EntityType="TiendaVirtualModel.Ventas" />
+          <AssociationSet Name="FK__DetalleVe__idPro__75A278F5" Association="TiendaVirtualModel.FK__DetalleVe__idPro__75A278F5">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__idVen__74AE54BC" Association="TiendaVirtualModel.FK__DetalleVe__idVen__74AE54BC">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__idUsuari__6FE99F9F" Association="TiendaVirtualModel.FK__Ventas__idUsuari__6FE99F9F">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="idDetalleVenta" />
+          </Key>
+          <Property Name="idDetalleVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idVenta" Type="Int32" Nullable="false" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Productos" Relationship="TiendaVirtualModel.FK__DetalleVe__idPro__75A278F5" FromRole="DetalleVenta" ToRole="Productos" />
+          <NavigationProperty Name="Ventas" Relationship="TiendaVirtualModel.FK__DetalleVe__idVen__74AE54BC" FromRole="DetalleVenta" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="FechaVenta" Type="DateTime" Precision="3" />
+          <Property Name="TotalVenta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="DetalleVenta" Relationship="TiendaVirtualModel.FK__DetalleVe__idVen__74AE54BC" FromRole="Ventas" ToRole="DetalleVenta" />
+          <NavigationProperty Name="usuario" Relationship="TiendaVirtualModel.FK__Ventas__idUsuari__6FE99F9F" FromRole="Ventas" ToRole="usuario" />
+        </EntityType>
+        <Association Name="FK__DetalleVe__idPro__75A278F5">
+          <End Type="TiendaVirtualModel.Productos" Role="Productos" Multiplicity="1" />
+          <End Type="TiendaVirtualModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__idVen__74AE54BC">
+          <End Type="TiendaVirtualModel.Ventas" Role="Ventas" Multiplicity="1" />
+          <End Type="TiendaVirtualModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="idVenta" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="idVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__idUsuari__6FE99F9F">
+          <End Type="TiendaVirtualModel.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="TiendaVirtualModel.Ventas" Role="Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -380,6 +523,27 @@
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleVenta">
+            <EntityTypeMapping TypeName="TiendaVirtualModel.DetalleVenta">
+              <MappingFragment StoreEntitySet="DetalleVenta">
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+                <ScalarProperty Name="idDetalleVenta" ColumnName="idDetalleVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="TiendaVirtualModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="TotalVenta" ColumnName="TotalVenta" />
+                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idVenta" ColumnName="idVenta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

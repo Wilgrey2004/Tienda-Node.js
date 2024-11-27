@@ -66,3 +66,19 @@ Create table Carrito(
 	CantidadCompra int
 )
 
+CREATE TABLE Ventas (
+    idVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    idUsuario INT NOT NULL REFERENCES Usuario(idUsuario),
+    FechaVenta DATETIME DEFAULT GETDATE(),
+    TotalVenta DECIMAL(10, 2) NOT NULL CHECK (TotalVenta >= 0)
+);
+
+CREATE TABLE DetalleVenta (
+    idDetalleVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    idVenta INT NOT NULL REFERENCES Ventas(idVenta),
+    idProducto INT NOT NULL REFERENCES Productos(IdProducto),
+    Cantidad INT NOT NULL CHECK (Cantidad > 0),
+    PrecioUnitario DECIMAL(10, 2) NOT NULL CHECK (PrecioUnitario >= 0)
+);
+
+
