@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c5a89790eae746c39ddbc17344ddadec" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="TiendaVirtualModel.Carrito" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.categorias" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.Estatus" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.Productos" Width="1.5" PointX="6" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.usuario" Width="1.5" PointX="4.5" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Carrito__idProdu__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Carrito__idusuar__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__categoria__Estat__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Productos__Categ__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Productos__Estat__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__usuario__estatus__5DCAEF64" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.DetalleVenta" Width="1.5" PointX="11" PointY="4" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.Ventas" Width="1.5" PointX="6.75" PointY="7.625" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__DetalleVe__idPro__75A278F5" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__DetalleVe__idVen__74AE54BC" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Ventas__idUsuari__6FE99F9F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
