@@ -1,8 +1,8 @@
 <section
-  class="flex flex-col w-full h-full items-center justify-center bg-slate-500"
+  class="flex flex-col w-full h-full items-center justify-center bg-slate-500 gap-10"
 >
   <!-- quiero covertir esto es un carrucel de 3 imagenes -->
-  <article class="flex items-center justify-center mt-2 rounded-lg">
+  <article class="flex items-center justify-center rounded-lg">
     <div
       id="Carrucel"
       class="flex justify-center items-center w-[1200px] h-[75vh] shadow-lg"
@@ -43,27 +43,33 @@
   </article>
 
   <!-- article padre -->
-  <article class="flex flex-1 items-start justify-start">
+  <article class="flex flex-1 flex-col items-start justify-start">
+    <h1>Productos</h1>
     <!-- este div es el que guarda las cartas -->
-    <div>
+    <div class="flex gap-1 items-start justify-start">
       <!-- esta es la carta -->
-      <div>
+      <div
+        class="border-gray-400 flex flex-col gap-1 w-1/4 rounded-lg border-2 p-6 bg-gray-200 justify-center items-center shadow-lg"
+      >
         <!-- aqui va la imagen, esta tiene que quedar hasta arriba del todo -->
         <div>
           <img
             src="https://i.postimg.cc/W1zr9nKH/Router.png"
             alt="Descripcion"
           />
+          <hr />
         </div>
         <!-- aqui van los textos y el precio -->
         <div>
-          <h2>Nombre</h2>
+          <h2>Productos</h2>
           <p>Descripcion</p>
           <!-- aqui va el precio y el boton de compra -->
           <div>
             <p>Precio</p>
             <form action="">
-              <button value="1">Comprar</button>
+              <button class="bg-sky-300 rounded-lg p-2" value="1">
+                Comprar
+              </button>
             </form>
           </div>
         </div>

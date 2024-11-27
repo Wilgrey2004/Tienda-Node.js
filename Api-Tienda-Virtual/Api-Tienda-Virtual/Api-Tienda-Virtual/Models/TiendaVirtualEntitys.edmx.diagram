@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c5a89790eae746c39ddbc17344ddadec" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="c5a89790eae746c39ddbc17344ddadec" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="TiendaVirtualModel.Carrito" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TiendaVirtualModel.categorias" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TiendaVirtualModel.Estatus" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
@@ -21,6 +21,8 @@
         <AssociationConnector Association="TiendaVirtualModel.FK__DetalleVe__idPro__75A278F5" />
         <AssociationConnector Association="TiendaVirtualModel.FK__DetalleVe__idVen__74AE54BC" />
         <AssociationConnector Association="TiendaVirtualModel.FK__Ventas__idUsuari__6FE99F9F" />
+        <EntityTypeShape EntityType="TiendaVirtualModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="TiendaVirtualModel.FK__Carrito__Estatus__17F790F9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

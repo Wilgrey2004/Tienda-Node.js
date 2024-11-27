@@ -1,11 +1,13 @@
-const abrirModal = (estado) => {
-  const modal = document.getElementById("modal");
-  if (estado) {
-    modal.classList.remove("hidden");
-  } else {
-    modal.classList.add("hidden");
-  }
-};
+//por algunos problemas con la carga de los objetos esto estara comentado...
+
+// const abrirModal = (estado) => {
+//   const modal = document.getElementById("modal");
+//   if (estado) {
+//     modal.classList.remove("hidden");
+//   } else {
+//     modal.classList.add("hidden");
+//   }
+// };
 
 // Esta funcion se encarga de eliminar los elementos de los carritos de compra
 document.addEventListener("DOMContentLoaded", () => {

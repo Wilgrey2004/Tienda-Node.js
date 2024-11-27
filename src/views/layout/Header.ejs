@@ -25,73 +25,9 @@
         </li>
         <!-- Modal -->
         <li>
-          <!-- Boton del modal -->
-          <Button
-            class="text-sky-300 hover: hover:text-sky-200"
-            onclick="abrirModal(true)"
-            >Carrito</Button
+          <a class="text-sky-300 hover: hover:text-sky-200" href="/Carrito"
+            >Carrito</a
           >
-          <!-- contenedor del modal -->
-          <div
-            id="modal"
-            class="fixed inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center hidden z-50"
-          >
-            <!-- Encabezado del modal -->
-            <div class="bg-white rounded-lg shadow-lg border-b px-4 py-2">
-              <h3 class="text-2xl font-semibold">Carrito De Compras</h3>
-              <hr />
-              <br />
-              <!-- Contenido del modal -->
-              <div class="flex flex-col gap-1">
-                <ul id="ListaCarrito" class="flex flex-col gap-1 shadow-xl">
-                  <!-- aqui van los productos del carrito -->
-                  <li class="border-2 rounded-lg">
-                    <div class="flex gap-5 p-4">
-                      <p>Nombre:</p>
-                      <p>Precio: $50</p>
-                      <div>
-                        <label for="Cantidad">
-                          <input
-                            class="outline-none text-center border-b-2 border-sky-300"
-                            type="number"
-                            name="Cantidad"
-                            id="Cantidad"
-                            max="20"
-                            min="1"
-                            value="1"
-                          />
-                        </label>
-                      </div>
-                      <Button
-                        type="button"
-                        class="text-red-600 Eliminar"
-                        value="1"
-                        >X</Button
-                      >
-                    </div>
-                  </li>
-                </ul>
-                <!-- Aqui Va El boton De Comprar Y el resultado Del Total De la compra -->
-                <div
-                  class="flex flex-col gap-5 border-2 border-gray-300 rounded-lg shadow-lg justify-center items-center mt-5 p-6"
-                >
-                  <p>Total:</p>
-                  <Button
-                    class="text-sky-700 hover:text-sky-500 hover:shadow-lg transition-all duration-100 ease-in border-2 border-sky-300 p-1 rounded-lg"
-                    >Comprar</Button
-                  >
-                </div>
-              </div>
-
-              <button
-                class="absolute top-2 right-2 text-red-500 text-5xl hover:text-red-200"
-                onclick="abrirModal(false)"
-              >
-                X
-              </button>
-            </div>
-          </div>
-          <!-- Aqui Termina el contenedor del modal -->
         </li>
         <!-- Modal termina-->
       </ul>
