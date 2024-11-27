@@ -1,37 +1,37 @@
-Create Database TiendaVirtual
+-- Create Database TiendaVirtual
 
 use TiendaVirtual
 
-create table Estatus(
-	idEstatus int identity(1,1) primary key not null,
-	Estatus varchar(10) not null
-)
+-- create table Estatus(
+-- 	idEstatus int identity(1,1) primary key not null,
+-- 	Estatus varchar(10) not null
+-- )
 
 insert into Estatus(Estatus) values ('Activo'),('Inactivo')
 
-Create table categorias(
-	idCategoria int identity(1,1) primary key not null,
-	Categoria varchar(50),
-	urlImagen varchar(max),
-	Descripcion varchar(max),
-	Estatus int references Estatus(idEstatus) default 1
-)
+-- Create table categorias(
+-- 	idCategoria int identity(1,1) primary key not null,
+-- 	Categoria varchar(50),
+-- 	urlImagen varchar(max),
+-- 	Descripcion varchar(max),
+-- 	Estatus int references Estatus(idEstatus) default 1
+-- )
 insert into categorias(Categoria,Descripcion,urlImagen) values 
 ('Tecnologia','Productos tecnologicos que te ayudaran a tener una vida mas facil','https://i.postimg.cc/RFYQsndw/Tecnologia.png')
 ,('Trabajos Duros','Utencilios para todo tipo de trabajo rudo en exteriores','https://i.postimg.cc/CxwPfkQK/cutting-metal-with-plasma-equipment-plant.jpg')
 ,('Cocina','Todos los utenciolios para los amantes de la gastronomia','https://i.postimg.cc/XNTtXZWZ/woman-cooking-kitchen.jpg')
 
 
-create table Productos(
-	IdProducto int identity(1,1) primary key not null,
-	Nombre varchar(50),
-	Descripcion varchar(100),
-	Precio int default 1,
-	urlImagen varchar(max),
-	cantidad int default 1,
-	Categoria int references Categorias(idCategoria),
-	Estatus int references estatus(idEstatus) default 1
-)
+-- create table Productos(
+-- 	IdProducto int identity(1,1) primary key not null,
+-- 	Nombre varchar(50),
+-- 	Descripcion varchar(100),
+-- 	Precio int default 1,
+-- 	urlImagen varchar(max),
+-- 	cantidad int default 1,
+-- 	Categoria int references Categorias(idCategoria),
+-- 	Estatus int references estatus(idEstatus) default 1
+-- )
 
 
 INSERT INTO Productos (Nombre, Descripcion, Precio, urlImagen, cantidad, Categoria, Estatus) 
@@ -50,35 +50,38 @@ VALUES  ('laptop', 'Una laptop ligera y sencilla para uso cotidiano', 600, 'http
 
 --select * from Productos where categoria = 3
 
-create table usuario(
-	idusuario int identity(1,1) primary key not null,
-	Correo varchar(300) not null, 
-	Password varchar(max),
-	estatus int references estatus(idEstatus)
-)
+-- create table usuario(
+-- 	idusuario int identity(1,1) primary key not null,
+-- 	Correo varchar(300) not null, 
+-- 	Password varchar(max),
+-- 	estatus int references estatus(idEstatus)
+-- )
 
 insert into usuario(Correo,Password,estatus) values ('Juan@x.com','12345',1);
 
-Create table Carrito(
-	idCarrito int identity(1,1) primary key not null,
-	idusuario int references usuario(idusuario),
-	idProducto int references Productos(IdProducto),
-	CantidadCompra int
-)
 
-CREATE TABLE Ventas (
-    idVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    idUsuario INT NOT NULL REFERENCES Usuario(idUsuario),
-    FechaVenta DATETIME DEFAULT GETDATE(),
-    TotalVenta DECIMAL(10, 2) NOT NULL CHECK (TotalVenta >= 0)
-);
 
-CREATE TABLE DetalleVenta (
-    idDetalleVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    idVenta INT NOT NULL REFERENCES Ventas(idVenta),
-    idProducto INT NOT NULL REFERENCES Productos(IdProducto),
-    Cantidad INT NOT NULL CHECK (Cantidad > 0),
-    PrecioUnitario DECIMAL(10, 2) NOT NULL CHECK (PrecioUnitario >= 0)
-);
+-- Create table Carrito(
+-- 	idCarrito int identity(1,1) primary key not null,
+-- 	idusuario int references usuario(idusuario),
+-- 	idProducto int references Productos(IdProducto),
+-- 	CantidadCompra int,
+-- 	Estatus int references estatus(idEstatus) default 1
+-- )
+
+-- CREATE TABLE Ventas (
+--     idVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+--     idUsuario INT NOT NULL REFERENCES Usuario(idUsuario),
+--     FechaVenta DATETIME DEFAULT GETDATE(),
+--     TotalVenta DECIMAL(10, 2) NOT NULL CHECK (TotalVenta >= 0)
+-- );
+
+-- CREATE TABLE DetalleVenta (
+--     idDetalleVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+--     idVenta INT NOT NULL REFERENCES Ventas(idVenta),
+--     idProducto INT NOT NULL REFERENCES Productos(IdProducto),
+--     Cantidad INT NOT NULL CHECK (Cantidad > 0),
+--     PrecioUnitario DECIMAL(10, 2) NOT NULL CHECK (PrecioUnitario >= 0)
+-- );
 
 

@@ -1,0 +1,52 @@
+<div id="modal" class="flex flex-col justify-center items-center mt-4">
+  <!-- Encabezado del modal -->
+  <div class="bg-white rounded-lg shadow-2xl border-2 px-4 py-2">
+    <h3 class="text-2xl font-semibold">Carrito De Compras</h3>
+    <hr />
+    <br />
+    <!-- Contenido del modal -->
+    <div class="flex flex-col gap-1">
+      <ul id="ListaCarrito" class="flex flex-col gap-1 shadow-xl">
+        <!-- aqui van los productos del carrito -->
+
+        <% carritoCompras.forEach((Carrito) => { %>
+        <li class="border-2 rounded-lg">
+          <div class="flex gap-5 p-4">
+            <p><%= Carrito.Nombre %></p>
+            <p><%= Carrito.precio %></p>
+            <div>
+              <label for="Cantidad">
+                <input
+                  class="outline-none text-center border-b-2 border-sky-300"
+                  type="number"
+                  name="Cantidad"
+                  id="Cantidad"
+                  max="20"
+                  min="1"
+                  value="<%= Carrito.CantuidadCompra %>"
+                />
+              </label>
+            </div>
+            <Button
+              type="button"
+              class="text-red-600 Eliminar"
+              value="<%= Carrito.idProducto  %>"
+              >X</Button
+            >
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+      <!-- Aqui Va El boton De Comprar Y el resultado Del Total De la compra -->
+      <div
+        class="flex flex-col gap-5 border-2 border-gray-300 rounded-lg shadow-lg justify-center items-center mt-5 p-6"
+      >
+        <p>Total:</p>
+        <Button
+          class="text-sky-700 hover:text-sky-500 hover:shadow-lg transition-all duration-100 ease-in border-2 border-sky-300 p-1 rounded-lg"
+          >Comprar</Button
+        >
+      </div>
+    </div>
+  </div>
+</div>

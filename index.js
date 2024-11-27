@@ -9,6 +9,8 @@ const expressLayout = require("express-ejs-layouts"); // Esto nos permite tener 
 
 const homeRouters = require("./src/routes/Home.routes.js");
 
+const CarritoRouters = require("./src/routes/Carrito.routes.js");
+
 // final de zona de requires...
 
 const app = express(); // creamos el servidor
@@ -31,6 +33,7 @@ app.set("layout", "layout/layout.ejs"); //le indicamos a la aplicacion en donde 
 // }); // esta es la primera ruta de acceso que creamos en nuestra app
 
 app.use(homeRouters);
+app.use(CarritoRouters);
 
 const PORT = process.env.PORT || 3001; // aqui le decimo cual es puerto que va a usar la aplicacion.
 
