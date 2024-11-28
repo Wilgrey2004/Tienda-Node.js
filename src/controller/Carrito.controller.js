@@ -4,16 +4,16 @@ let carritoCompras = [
   {
     idProducto: 1,
     idusuario: 1,
-    Nombre: "router",
+    Nombre: "Labtop",
     precio: 30,
-    CantuidadCompra: 1,
+    CantuidadMaxima: 10,
   },
   {
     idProducto: 2,
     idusuario: 1,
     Nombre: "Pinsas",
     precio: 10,
-    CantuidadCompra: 4,
+    CantuidadMaxima: 10,
   },
 ];
 
@@ -25,4 +25,5 @@ const Carrito = (req, res) => {
 
 module.exports = {
   Carrito,
+  carritoCompras,
 };
