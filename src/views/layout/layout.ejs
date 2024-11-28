@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/output.css" rel="stylesheet" />
     <title>Tienda-Virtual</title>
   </head>
-  <body class="flex flex-col h-screen gap-10 bg-slate-500">
+  <body
+    class="flex flex-col h-screen w-screen gap-5 bg-slate-500 overflow-x-hidden"
+  >
     <%- include('Header') %>
-    <main class="flex-1"><%- body %></main>
+    <main class="flex-grow"><%- body %></main>
     <%- include('footer') %>
     <script src="/scrips/scrip.js"></script>
   </body>

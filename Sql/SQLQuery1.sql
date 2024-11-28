@@ -57,7 +57,7 @@ VALUES  ('laptop', 'Una laptop ligera y sencilla para uso cotidiano', 600, 'http
 -- 	estatus int references estatus(idEstatus)
 -- )
 
-insert into usuario(Correo,Password,estatus) values ('Juan@x.com','12345',1);
+insert into usuario(Correo,Password,estatus) values ('Antonio@x.com','12345',1);
 
 
 
@@ -68,6 +68,8 @@ insert into usuario(Correo,Password,estatus) values ('Juan@x.com','12345',1);
 -- 	CantidadCompra int,
 -- 	Estatus int references estatus(idEstatus) default 1
 -- )
+
+INSERT INTO Carrito(idusuario,idProducto,CantidadCompra) VALUES (1,8,3);
 
 -- CREATE TABLE Ventas (
 --     idVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,

@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Esta es la forma de hacer 'clases' con tailwind css */
+@layer components {
+  .carta {
+    @apply flex flex-col bg-gradient-to-r
+    from-slate-300 to-sky-300 w-40 h-60 
+      rounded-lg p-10 justify-center items-center 
+      shadow-md shadow-slate-200 hover:shadow-lg 
+      hover:-translate-y-1 hover:shadow-slate-400 
+      transition-all duration-100 ease-in overflow-hidden;
+  }
+  .btn-sky {
+    @apply bg-sky-300 rounded-lg p-2 hover:bg-black/5
+  hover:border-sky-300 hover:border-2 transition-all duration-100 ease-in;
+  }
+
+  .btn-red {
+    @apply border-red-700 text-red-700 border-2
+    rounded-lg p-2 hover:bg-red-500
+  hover:text-white transition-all 
+    duration-100 ease-in;
+  }
+
+  .Titulo {
+    @apply text-sky-300 hover:text-black hover:font-bold hover:text-2xl
+    text-xl cursor-pointer transition-all duration-100 ease-in;
+  }
+
+  .Navegacion {
+    @apply flex justify-between items-center h-full w-full p-4 shadow-md;
+  }
+}

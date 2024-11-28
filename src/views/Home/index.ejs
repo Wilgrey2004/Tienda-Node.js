@@ -1,11 +1,11 @@
 <section
-  class="flex flex-col w-full h-full items-center justify-center bg-slate-500 gap-10"
+  class="flex flex-col w-full h-full items-center justify-center bg-slate-500 gap-5"
 >
   <!-- quiero covertir esto es un carrucel de 3 imagenes -->
-  <article class="flex items-center justify-center rounded-lg">
+  <article class="flex items-center justify-center rounded-lg mb-10">
     <div
       id="Carrucel"
-      class="flex justify-center items-center w-[1200px] h-[75vh] shadow-lg"
+      class="flex justify-center items-center w-[1200px] h-[75vh]"
     >
       <!-- Panel 1 -->
       <div
@@ -43,37 +43,48 @@
   </article>
 
   <!-- article padre -->
-  <article class="flex flex-1 flex-col items-start justify-start">
-    <h1>Productos</h1>
+
+  <article class="flex flex-col items-center gap-10">
+    <!-- Aqui voy a poner el titulo de la seccion de abajo -->
+    <article class="">
+      <h2 class="text-3xl font-bold text-black">Productos</h2>
+    </article>
+    <!-- Fin Titulo -->
+
     <!-- este div es el que guarda las cartas -->
-    <div class="flex gap-1 items-start justify-start">
+    <div class="flex gap-8 flex-wrap flex-1 justify-center items-start">
       <!-- esta es la carta -->
+      <% Productos.forEach((producto) => { %>
       <div
-        class="border-gray-400 flex flex-col gap-1 w-1/4 rounded-lg border-2 p-6 bg-gray-200 justify-center items-center shadow-lg"
+        class="carta flex flex-col bg-white shadow-md rounded-lg p-4 w-60 min-h-[300px] items-center"
       >
-        <!-- aqui va la imagen, esta tiene que quedar hasta arriba del todo -->
+        <!-- Imagen -->
         <div>
           <img
-            src="https://i.postimg.cc/W1zr9nKH/Router.png"
-            alt="Descripcion"
+            class="w-full h-40 object-cover rounded-md"
+            src="<%= producto.urlImagen %>"
+            alt="<%= producto.Descripcion %>"
           />
-          <hr />
+          <hr class="my-2" />
         </div>
-        <!-- aqui van los textos y el precio -->
-        <div>
-          <h2>Productos</h2>
-          <p>Descripcion</p>
-          <!-- aqui va el precio y el boton de compra -->
-          <div>
-            <p>Precio</p>
-            <form action="">
-              <button class="bg-sky-300 rounded-lg p-2" value="1">
-                Comprar
-              </button>
-            </form>
-          </div>
+        <!-- Texto -->
+        <div class="flex flex-col flex-1 gap-2 text-center">
+          <h2 class="text-lg font-semibold">
+            <%= producto.Nombre %> | $<%= producto.precio %>
+          </h2>
+          <p class="text-sm text-gray-600"><%= producto.Descripcion %></p>
+        </div>
+        <!-- Botones -->
+        <div class="mt-auto flex gap-2">
+          <form action="" class="flex gap-2">
+            <button class="btn-sky">Carrito</button>
+            <button class="btn-red">Favorito</button>
+          </form>
         </div>
       </div>
+      <% }); %>
+      <!-- Aqui Termina la carta -->
     </div>
   </article>
+  <!-- Aqui termina el article padrea en donde se encuentran las cartas... -->
 </section>
