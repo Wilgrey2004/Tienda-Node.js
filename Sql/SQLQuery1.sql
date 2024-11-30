@@ -69,6 +69,14 @@ insert into usuario(Correo,Password,estatus) values ('Antonio@x.com','12345',1);
 -- 	Estatus int references estatus(idEstatus) default 1
 -- )
 
+
+Create table ListaEspera (
+	IdLista int identity(1,1) primary key not null,
+	IdUsuario int references usuario(idusuario),
+	IdProducto int references Productos(IdProducto),
+	cantidad int default 1
+)
+
 INSERT INTO Carrito(idusuario,idProducto,CantidadCompra) VALUES (1,8,3);
 
 -- CREATE TABLE Ventas (

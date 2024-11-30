@@ -18,6 +18,7 @@ namespace Api_Tienda_Virtual.Models
         public Productos()
         {
             this.Carrito = new HashSet<Carrito>();
+            this.DetalleVenta = new HashSet<DetalleVenta>();
         }
     
         public int IdProducto { get; set; }
@@ -32,6 +33,8 @@ namespace Api_Tienda_Virtual.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carrito> Carrito { get; set; }
         public virtual categorias categorias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
         public virtual Estatus Estatus1 { get; set; }
     }
 }

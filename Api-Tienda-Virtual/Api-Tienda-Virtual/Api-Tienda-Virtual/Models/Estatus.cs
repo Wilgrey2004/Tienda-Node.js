@@ -17,6 +17,7 @@ namespace Api_Tienda_Virtual.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Estatus()
         {
+            this.Carrito = new HashSet<Carrito>();
             this.categorias = new HashSet<categorias>();
             this.Productos = new HashSet<Productos>();
             this.usuario = new HashSet<usuario>();
@@ -25,6 +26,8 @@ namespace Api_Tienda_Virtual.Models
         public int idEstatus { get; set; }
         public string Estatus1 { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Carrito> Carrito { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<categorias> categorias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -54,7 +54,7 @@
     <!-- este div es el que guarda las cartas -->
     <div class="flex gap-8 flex-wrap flex-1 justify-center items-start">
       <!-- esta es la carta -->
-      <% Productos.forEach((producto) => { %>
+      <% ProductosList.forEach((producto) => { %>
       <div
         class="carta flex flex-col bg-white shadow-md rounded-lg p-4 w-60 min-h-[300px] items-center"
       >
@@ -62,7 +62,7 @@
         <div>
           <img
             class="w-full h-40 object-cover rounded-md"
-            src="<%= producto.urlImagen %>"
+            src="<%= producto.UrlImagen %>"
             alt="<%= producto.Descripcion %>"
           />
           <hr class="my-2" />
@@ -70,15 +70,21 @@
         <!-- Texto -->
         <div class="flex flex-col flex-1 gap-2 text-center">
           <h2 class="text-lg font-semibold">
-            <%= producto.Nombre %> | $<%= producto.precio %>
+            <%= producto.Nombre %> | $<%= producto.Precio %>
           </h2>
           <p class="text-sm text-gray-600"><%= producto.Descripcion %></p>
         </div>
         <!-- Botones -->
         <div class="mt-auto flex gap-2">
-          <form action="" class="flex gap-2">
-            <button class="btn-sky">Carrito</button>
-            <button class="btn-red">Favorito</button>
+          <form class="Acciones flex gap-2">
+            <button
+              type="submit"
+              value="<%= Idusuario %>,<%= producto.IdProducto %>"
+              class="btn-sky Carrito"
+            >
+              Carrito
+            </button>
+            <button type="submit" class="btn-red Favorito">Favorito</button>
           </form>
         </div>
       </div>

@@ -18,7 +18,9 @@ namespace Api_Tienda_Virtual.Models
         public Nullable<int> idusuario { get; set; }
         public Nullable<int> idProducto { get; set; }
         public Nullable<int> CantidadCompra { get; set; }
+        public Nullable<int> Estatus { get; set; }
     
+        public virtual Estatus Estatus1 { get; set; }
         public virtual Productos Productos { get; set; }
         public virtual usuario usuario { get; set; }
     }

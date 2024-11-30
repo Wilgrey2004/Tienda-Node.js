@@ -1,29 +1,39 @@
+const { json } = require("express");
 const path = require("path");
 
-let carritoCompras = [
-  {
-    idProducto: 1,
-    idusuario: 1,
-    Nombre: "Labtop",
-    precio: 30,
-    CantuidadMaxima: 10,
-  },
-  {
-    idProducto: 2,
-    idusuario: 1,
-    Nombre: "Pinsas",
-    precio: 10,
-    CantuidadMaxima: 10,
-  },
-];
+const Idusuario = process.env.IDUSUARIO; // El objeto que necesitas enviar
+
+let carritoCompras = [];
 
 const Carrito = (req, res) => {
-  res.render(path.join(__dirname, "../views/layout/Componentes/Carrito.ejs"), {
-    carritoCompras,
-  });
+  // Construir la URL con parámetros de consulta
+  const url = new URL("http://localhost:3005/Api/Carrito?objs=" + Idusuario);
+
+  fetch(url, { method: "GET" }) // ❌ Eliminamos el `body`
+    .then((res) => res.json())
+    .then((ProductosCarrito) => {
+      carritoCompras.push(...ProductosCarrito); // Guardar productos en el array
+      res.render(
+        path.join(__dirname, "../views/layout/Componentes/Carrito.ejs"),
+        {
+          carritoCompras,
+          Idusuario,
+        }
+      );
+    })
+    .catch((error) => {
+      console.error("Error al obtener el carrito:", error);
+      res.status(500).send("Error al obtener el carrito");
+    });
+};
+
+const AgregarAlCarrito = (req, res) => {
+  const values = req.body.values;
+  console.log("Valores recibidos:", values);
 };
 
 module.exports = {
   Carrito,
+  AgregarAlCarrito,
   carritoCompras,
 };

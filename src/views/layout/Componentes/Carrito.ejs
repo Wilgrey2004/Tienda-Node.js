@@ -23,14 +23,14 @@
                   id="Cantidad"
                   max="<%= Carrito.CantuidadMaxima  %>"
                   min="1"
-                  value="1"
+                  value="<%= Carrito.Cantidad %>"
                 />
               </label>
             </div>
             <Button
               type="button"
               class="text-red-600 Eliminar"
-              value="<%= Carrito.idProducto  %>"
+              value="<%= Carrito.IdProducto  %>"
               >X</Button
             >
           </div>

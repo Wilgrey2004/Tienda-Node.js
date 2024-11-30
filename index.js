@@ -13,6 +13,8 @@ const CarritoRouters = require("./src/routes/Carrito.routes.js");
 
 // final de zona de requires...
 
+
+
 const app = express(); // creamos el servidor
 
 app.use(express.json()); // le decimos a express que use el formato json
