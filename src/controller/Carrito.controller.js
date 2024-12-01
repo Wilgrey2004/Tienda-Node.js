@@ -1,4 +1,3 @@
-const { json } = require("express");
 const path = require("path");
 
 const Idusuario = process.env.IDUSUARIO; // El objeto que necesitas enviar
