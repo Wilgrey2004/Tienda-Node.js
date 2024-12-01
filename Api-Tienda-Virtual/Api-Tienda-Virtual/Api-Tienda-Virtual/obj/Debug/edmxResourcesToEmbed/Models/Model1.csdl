@@ -305,6 +305,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SP_SUMAR_CARRITO">
+      <Parameter Name="IDUSUARIO_" Mode="In" Type="Int32" />
+      <Parameter Name="IDPRODUCTO_" Mode="In" Type="Int32" />
+      <Parameter Name="CANTIDADCOMPRA_R" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="PS_GET_PRODUCTOS_CARRITO_Result">
     <Property Type="Int32" Name="IdCarrito" Nullable="false" />

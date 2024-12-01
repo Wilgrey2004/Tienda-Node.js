@@ -34,11 +34,21 @@ namespace Api_Tienda_Virtual.Controllers
                 }
 
                 [HttpPost]
-                public void AgregarCarrito( CarritoViewsModels carrito ) {
+                public void AgregarCarrito( CarritoInsert carritoInsert ) {
+                        using(TiendaVirtualEntitie db = new TiendaVirtualEntitie()){
+                                db.SP_SUMAR_CARRITO(carritoInsert.IdUsuario, carritoInsert.IdProducto, carritoInsert.CantidadComprar);
+                                db.SaveChanges();
+                        }
                 }
 
                 [HttpDelete]
-                public void DestroyCarrito() {
+                public void DestroyCarrito(int id) {
+                        using(TiendaVirtualEntitie db = new TiendaVirtualEntitie())
+                        {
+                                var CarritooDestroy = db.Carrito.FirstOrDefault(carr => carr.idCarrito == id);
+                                db.Carrito.Remove(CarritooDestroy);
+                                db.SaveChanges();
+                        }
                 }
 
 

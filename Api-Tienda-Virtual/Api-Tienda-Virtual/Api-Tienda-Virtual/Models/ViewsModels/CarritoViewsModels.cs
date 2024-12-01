@@ -10,6 +10,12 @@
                 public int CantuidadMaxima { get; set; }
         }
 
+        public class CarritoInsert {
+                public int IdUsuario { get; set; }
+                public int IdProducto { get; set; }
+                public int CantidadComprar { get; set; }
+        }
+
         public class InfoCarrito
         {
                 public int Idusuario { get; set; }

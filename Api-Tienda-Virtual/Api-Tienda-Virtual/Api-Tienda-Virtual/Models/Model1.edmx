@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TiendaVirtualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TiendaVirtualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carrito">
           <Key>
             <PropertyRef Name="idCarrito" />
@@ -241,6 +241,11 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_SUMAR_CARRITO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDUSUARIO_" Type="int" Mode="In" />
+          <Parameter Name="IDPRODUCTO_" Type="int" Mode="In" />
+          <Parameter Name="CANTIDADCOMPRA_R" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="TiendaVirtualModelStoreContainer">
           <EntitySet Name="Carrito" EntityType="Self.Carrito" Schema="dbo" store:Type="Tables" />
@@ -292,8 +297,7 @@
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TiendaVirtualModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -565,7 +569,7 @@
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
           <FunctionImport Name="PS_GET_PRODUCTOS_CARRITO" ReturnType="Collection(TiendaVirtualModel.PS_GET_PRODUCTOS_CARRITO_Result)">
-            <Parameter Name="IDUSUARIO" Mode="In" Type="Int32" />
+          <Parameter Name="IDUSUARIO" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_AGREGAR_CARRITO">
             <Parameter Name="IDUSUARIO" Mode="In" Type="Int32" />
@@ -602,6 +606,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SP_SUMAR_CARRITO">
+            <Parameter Name="IDUSUARIO_" Mode="In" Type="Int32" />
+            <Parameter Name="IDPRODUCTO_" Mode="In" Type="Int32" />
+            <Parameter Name="CANTIDADCOMPRA_R" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="PS_GET_PRODUCTOS_CARRITO_Result">
           <Property Type="Int32" Name="IdCarrito" Nullable="false" />
@@ -751,6 +760,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TiendaVirtualModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TiendaVirtualModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="SP_SUMAR_CARRITO" FunctionName="TiendaVirtualModel.Store.SP_SUMAR_CARRITO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|d:\\itla\\poyectos\\proyecto-tienda\\tienda-node.js\\api-tienda-virtual\\api-tienda-virtual\\api-tienda-virtual\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|solutionrelative:api-tienda-virtual\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|d:\\itla\\poyectos\\proyecto-tienda\\tienda-node.js\\api-tienda-virtual\\api-tienda-virtual\\api-tienda-virtual\\models\\viewsmodels\\carritoviewsmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|solutionrelative:api-tienda-virtual\\models\\viewsmodels\\carritoviewsmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|d:\\itla\\poyectos\\proyecto-tienda\\tienda-node.js\\api-tienda-virtual\\api-tienda-virtual\\api-tienda-virtual\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{881B6ABF-19AB-4226-A4B6-636CEEFC6BFB}|Api-Tienda-Virtual\\Api-Tienda-Virtual.csproj|solutionrelative:api-tienda-virtual\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\Itla\\Poyectos\\Proyecto-Tienda\\Tienda-Node.js\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "Api-Tienda-Virtual\\Models\\Model1.edmx",
+              "ToolTip": "D:\\Itla\\Poyectos\\Proyecto-Tienda\\Tienda-Node.js\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Api-Tienda-Virtual\\Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-12-01T18:31:16.055Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CarritoViewsModels.cs",
+              "DocumentMoniker": "D:\\Itla\\Poyectos\\Proyecto-Tienda\\Tienda-Node.js\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Models\\ViewsModels\\CarritoViewsModels.cs",
+              "RelativeDocumentMoniker": "Api-Tienda-Virtual\\Models\\ViewsModels\\CarritoViewsModels.cs",
+              "ToolTip": "D:\\Itla\\Poyectos\\Proyecto-Tienda\\Tienda-Node.js\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Models\\ViewsModels\\CarritoViewsModels.cs",
+              "RelativeToolTip": "Api-Tienda-Virtual\\Models\\ViewsModels\\CarritoViewsModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T18:19:21.103Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +61,7 @@
               "RelativeDocumentMoniker": "Api-Tienda-Virtual\\Controllers\\CarritoController.cs",
               "ToolTip": "D:\\Itla\\Poyectos\\Proyecto-Tienda\\Tienda-Node.js\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Api-Tienda-Virtual\\Controllers\\CarritoController.cs",
               "RelativeToolTip": "Api-Tienda-Virtual\\Controllers\\CarritoController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAqwCcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-30T00:17:24.146Z",
               "EditorCaption": ""

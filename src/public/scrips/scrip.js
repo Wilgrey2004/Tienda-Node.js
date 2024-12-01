@@ -13,7 +13,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   //Esta parte se encarga de obtener el elelemento lista que es el que se enarga de guardar todo en el carrito
   const lista = document.getElementById("ListaCarrito");
-  if(!lista)
+  if (!lista) {
+    return;
+  }
   // esta aagrega un esuchador de eventos al evento click
   lista.addEventListener("click", (event) => {
     // aqui usamos el "evento" para  encontrar el que contiene
@@ -64,22 +66,3 @@ addEventListener("submit", (event) => {
       });
   }
 });
-
-// document.addEventListener("submit", (event) => {
-//   // Prevenir el envío del formulario
-//   event.preventDefault();
-
-//   // Verificar que el formulario tenga la clase "Acciones"
-//   if (!event.target.classList.contains("Acciones")) {
-//     return;
-//   }
-
-//   // Obtener el botón que disparó el evento
-//   let btnCarrito = event.submitter; // `event.submitter` referencia al botón que disparó el evento
-
-//   // Verificar si el botón tiene la clase "Carrito"
-//   if (btnCarrito && btnCarrito.classList.contains("Carrito")) {
-//     let value = btnCarrito.value; // Obtener el valor del botón
-//     console.log(value); // Imprimir el valor en la consola
-//   }
-// });

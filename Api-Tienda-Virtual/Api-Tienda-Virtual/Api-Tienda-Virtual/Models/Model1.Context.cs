@@ -164,5 +164,22 @@ namespace Api_Tienda_Virtual.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual int SP_SUMAR_CARRITO(Nullable<int> iDUSUARIO_, Nullable<int> iDPRODUCTO_, Nullable<int> cANTIDADCOMPRA_R)
+        {
+            var iDUSUARIO_Parameter = iDUSUARIO_.HasValue ?
+                new ObjectParameter("IDUSUARIO_", iDUSUARIO_) :
+                new ObjectParameter("IDUSUARIO_", typeof(int));
+    
+            var iDPRODUCTO_Parameter = iDPRODUCTO_.HasValue ?
+                new ObjectParameter("IDPRODUCTO_", iDPRODUCTO_) :
+                new ObjectParameter("IDPRODUCTO_", typeof(int));
+    
+            var cANTIDADCOMPRA_RParameter = cANTIDADCOMPRA_R.HasValue ?
+                new ObjectParameter("CANTIDADCOMPRA_R", cANTIDADCOMPRA_R) :
+                new ObjectParameter("CANTIDADCOMPRA_R", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_SUMAR_CARRITO", iDUSUARIO_Parameter, iDPRODUCTO_Parameter, cANTIDADCOMPRA_RParameter);
+        }
     }
 }
