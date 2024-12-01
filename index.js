@@ -1,4 +1,5 @@
 //Zona de requires...
+
 const express = require("express"); //el modulo express es para crear el servidor de forma mas sencilla
 
 require("dotenv").config(); // esta parte es necesaria para usar el .env
@@ -12,6 +13,7 @@ const homeRouters = require("./src/routes/Home.routes.js");
 const CarritoRouters = require("./src/routes/Carrito.routes.js");
 
 // final de zona de requires...
+
 
 const app = express(); // creamos el servidor
 

@@ -13,6 +13,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   //Esta parte se encarga de obtener el elelemento lista que es el que se enarga de guardar todo en el carrito
   const lista = document.getElementById("ListaCarrito");
+  if (!lista) {
+    return;
+  }
   // esta aagrega un esuchador de eventos al evento click
   lista.addEventListener("click", (event) => {
     // aqui usamos el "evento" para  encontrar el que contiene
@@ -27,4 +30,39 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+});
+
+addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!event.target.classList.contains("Acciones")) {
+    return;
+  }
+
+  let btnCarrito = event.submitter;
+
+  if (btnCarrito && btnCarrito.classList.contains("Carrito")) {
+    let values = btnCarrito.value.split(","); // Dividir el valor en una lista
+
+    // Enviar los valores al controlador
+    fetch("/Carrito", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ values: values }), // Enviar los valores como JSON
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la respuesta del servidor");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Respuesta del servidor:", data);
+      })
+      .catch((error) => {
+        console.error("Error al enviar los datos:", error);
+      });
+  }
 });
