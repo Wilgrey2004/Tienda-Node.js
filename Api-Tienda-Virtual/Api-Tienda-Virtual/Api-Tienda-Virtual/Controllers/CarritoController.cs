@@ -46,7 +46,7 @@ namespace Api_Tienda_Virtual.Controllers
                         using(TiendaVirtualEntitie db = new TiendaVirtualEntitie())
                         {
                                 var CarritooDestroy = db.Carrito.FirstOrDefault(carr => carr.idCarrito == id);
-                                db.Carrito.Remove(CarritooDestroy);
+                                CarritooDestroy.Estatus = 4; // el estatus 4 es cancelado y el 3 es comprado
                                 db.SaveChanges();
                         }
                 }
