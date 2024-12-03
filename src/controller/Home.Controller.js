@@ -7,7 +7,7 @@ fetch("http://localhost:3005/Api/Productos/Listar/")
   .then((res) => res.json())
   .then((Productos) => ProductosList.push(...Productos))
   .catch((error) => {
-    console.error("Error al obtener los productos:", error);
+    console.error("Error al obtener los productos:" + error);
     res.status(500).send("Error al obtener los productos");
   });
 
