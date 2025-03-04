@@ -1,4 +1,4 @@
-## Tienda Virtual de Node.js
+## Tienda Virtual de Node.js .net core
 
 ## Descargar las dependencias
 ```shell
